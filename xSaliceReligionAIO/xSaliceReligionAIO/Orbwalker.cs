@@ -203,7 +203,7 @@ namespace xSaliceReligionAIO
         private static void OnUpdate(EventArgs args)
         {
             CheckAutoWindUp();
-            if (CurrentMode == Mode.None || MenuGUI.IsChatOpen || CustomOrbwalkMode || MyHero.IsChannelingImportantSpell() || MyHero.HasBuff("katarinarsound", true))
+            if (CurrentMode == Mode.None || MenuGUI.IsChatOpen || CustomOrbwalkMode || MyHero.IsChannelingImportantSpell() || MyHero.IsCastingInterruptableSpell() || MyHero.HasBuff("katarinarsound", true))
                 return;
             if (Environment.TickCount - _lastMovement < Menu.Item("orb_Misc_Humanizer").GetValue<Slider>().Value)
                 return;
