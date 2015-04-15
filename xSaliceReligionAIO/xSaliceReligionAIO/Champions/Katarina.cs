@@ -323,7 +323,7 @@ namespace xSaliceReligionAIO.Champions
         {
             List<Obj_AI_Base> allMinions = MinionManager.GetMinions(Player.ServerPosition, Q.Range, MinionTypes.All,
                 MinionTeam.NotAlly);
-            MinionManager.GetMinions(Player.ServerPosition, W.Range);
+            //MinionManager.GetMinions(Player.ServerPosition, W.Range);
 
             var useQ = menu.Item("UseQHit", true).GetValue<bool>();
             var useW = menu.Item("UseWHit", true).GetValue<bool>();
@@ -336,7 +336,7 @@ namespace xSaliceReligionAIO.Champions
                         HealthPrediction.GetHealthPrediction(minion, (int)(Player.Distance(minion.Position) * 1000 / 1400)) <
                         Player.GetSpellDamage(minion, SpellSlot.Q) - 35)
                     {
-                        Q.CastOnUnit(minion, packets());
+                        Q.Cast(minion, packets());
                         return;
                     }
                 }

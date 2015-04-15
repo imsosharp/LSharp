@@ -313,6 +313,8 @@ namespace xSaliceReligionAIO.Champions
 
         private void Escape()
         {
+            if (ObjectManager.Player.ManaPercent < Q.Instance.ManaCost + W.Instance.ManaCost + E.Instance.ManaCost)
+                return;
             Vector3 wVec = Player.ServerPosition + Vector3.Normalize(Game.CursorPos - Player.ServerPosition) * W.Range;
 
             if (menu.Item("fastEscape", true).GetValue<bool>())
